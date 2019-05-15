@@ -1,0 +1,24 @@
+  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+  
+  imports: [
+      FormsModule,
+    ReactiveFormsModule]
+
+
+ <form [formGroup]="FormModelName" (ngSubmit)="submit(FormModelName)">
+
+
+ </form>
+
+ <app-validation-message [controlname]="'Two'" [control]="paymentModel.controls.twoFactorCode"></app-validation-message>
+
+  import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+
+FormModelName: FormGroup;
+  constructor(private fb: FormBuilder, private _router: Router,private route: ActivatedRoute) {
+    this.FormModelName = this.fb.group({
+      email: new FormControl('', [ValidationmessageserviceService.emailValidator]),
+      currencyType: new FormControl('', [Validators.required]),
+      code: new FormControl('')
+    });
