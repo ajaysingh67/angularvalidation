@@ -1,0 +1,10 @@
+ 
+import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatOptionModule, MatSelectModule, MatToolbarModule, MatIconModule, MatListModule} from '@angular/material';
+
+
+LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
