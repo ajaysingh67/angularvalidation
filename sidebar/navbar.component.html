@@ -1,0 +1,313 @@
+<mdb-navbar *ngIf="!isAuthenticated()" SideClass="navbar navbar-expand-lg fixed-top scrolling-navbar d-lg-none" [containerInside]="true">
+	<mdb-navbar-brand class="d-flex justify-content-between">
+		<a class="logo navbar-brand" routerLink="/"></a>
+		<a class="nav-link toggle_btn" (click)="megaModalToggle();">
+			<span></span>
+			<span></span>
+		</a>
+	</mdb-navbar-brand>
+</mdb-navbar>
+
+<mdb-navbar *ngIf="!isAuthenticated()" SideClass="navbar navbar-expand-lg fixed-top scrolling-navbar d-none d-lg-block" [containerInside]="true">
+	<mdb-navbar-brand>
+		<a class="logo navbar-brand" routerLink="/"></a>
+
+	</mdb-navbar-brand>
+
+	<links >
+		<ul class="navbar-nav mr-auto specialLinkTabs">
+			<li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+				<a class="nav-link" routerLink="/">Personal</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" routerLink="/business">Business</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav align-items-lg-center ml-auto">
+			<li class="nav-item mr-lg-5" *ngIf="navButtons">
+				<button mdbBtn type="button" class="waves-light" size="sm" (click)="basicModal.show();setAccount('Individual');"
+				mdbWavesEffect>Create an account</button>
+			</li>
+			<li class="nav-item" style="position:relative;">
+				<a class="nav-link toggle_btn" (click)="megaModalToggle();">
+					<span></span>
+					<span></span>
+				</a>
+			</li>
+		</ul>
+	</links>
+
+</mdb-navbar>
+
+<div class="secondaryNavigation" *ngIf="showSecondaryNav">
+	<div class="container">
+		<div class="locale-switcher active">
+			<a href="javascript:void(0)" id="login" (click)="loginModal.show()">SIGN IN</a>
+			<a routerLink="/pricing">Pricing</a>
+			<a routerLink="/cas-token">Token</a>
+			<a routerLink="/company">Company</a>
+		</div>
+	</div>
+</div>
+
+<ng-container *ngIf="navButtons">
+	<div mdbModal #basicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+	 aria-hidden="true" [config]="{ignoreBackdropClick: true}">
+		<div class="onboarding_popup  modal-dialog modal-dialog-centered modal-md" role="document">
+			<div class="modal-content">				
+				<div class="modal-body d-flex">
+						<button type="button" class="close pull-right" aria-label="Close" (click)="basicModal.hide(); clear_form();">
+								<span class="line1"></span>
+								<span class="line2"></span>
+							</button>
+					<div class="onboard_cust col p-0 align-self-center">
+						<div class="select_type" *ngIf="currentView === 'EmailRegister'">
+							<div class="page-header py-5">
+								<div class="col-lg-10 offset-lg-1">
+									<div class="text-center">
+										<h3 class="super-heading text-center" jhiTranslate="home.signUpText">Create your account</h3>
+									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-10 offset-lg-1">
+										<div class="form-inline">
+											<div class="form-check pl-md-0">
+												<input type="radio" name="emotion" id="individual" class="form-check-input" [checked]="_accountType=='Individual'?true:false">
+												<label for="individual" class="form-check-label" (click)="setAccount('Individual');" jhiTranslate="home.individual">Personal Account</label>
+											</div>
+											<div class="form-check">
+												<input type="radio" name="emotion" id="business_user" class="form-check-input" [checked]="_accountType=='Business'?true:false">
+												<label for="business_user" class="form-check-label" (click)="setAccount('Business');" jhiTranslate="home.business">Business Account</label>
+											</div>
+										</div>
+										<form class="mb-5" [formGroup]="registerModal" (ngSubmit)="emailverification(registerModal)">
+											<label class="err_msg hidden" *ngIf="errorEmailExists" jhiTranslate="register.messages.error.emailexists">Email
+												is already in use! Please choose another one.</label>
+											<label class="err_msg hidden" *ngIf="errorOtpLimitExceed" jhiTranslate="register.messages.error.otplimitexceed">OTP
+												code has been resend for 3 times. Please try again after 30 minutes.</label>
+											<label class="err_msg hidden" *ngIf="errorInvalidOtpExceed" jhiTranslate="register.messages.error.invalidotplimitexceed">You
+												have entered incorrect OTP for 3 times.Please try again after 30 minutes.</label>
+
+											<div *ngIf="_accountType==='Individual'">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="md-form text-left">
+															<input mdbInputDirective type="text" id="first_name" class="form-control" formControlName="firstname"
+															 autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+															<label for="first_name" class="">First Name<span class="required">*</span></label>
+															<jhi-validation-messsage-service [controlname]="'First name'" [control]="registerModal.controls.firstname"></jhi-validation-messsage-service>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="md-form text-left mt-0 mt-lg-4  mt-md-4  mt-sm-0">
+															<input mdbInputDirective type="text" id="last_name" class="form-control" formControlName="lastname"
+															 autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+															<label for="last_name" class="">Last Name<span class="required">*</span></label>
+															<jhi-validation-messsage-service [controlname]="'Last name'" [control]="registerModal.controls.lastname"></jhi-validation-messsage-service>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="md-form text-left" *ngIf="_accountType==='Business'">
+												<input mdbInputDirective type="text" id="company_first_name" class="form-control" formControlName="firstname"
+												 autocomplete="off" readonly onfocus="this.removeAttribute('readonly');">
+												<label for="company_first_name" class="">Company Name<span class="required">*</span></label>
+												<jhi-validation-messsage-service [controlname]="'Company name'" [control]="registerModal.controls.firstname"></jhi-validation-messsage-service>
+											</div>
+											<div class="{{(_accountType==='Individual')?'md-form text-left mt-0':'md-form text-left'}}">
+												<input mdbInputDirective type="email" name="email" id="email" aria-describedby="emailHelp" class="form-control"
+												 formControlName="email" #email (blur)="checkEmailAvailability(email.value)" autocomplete="false">
+												<label for="email" class="">Email Address<span class="required">*</span></label>
+												<jhi-validation-messsage-service [controlname]="'Email'" *ngIf="nameStatus" [control]="registerModal.controls.email"></jhi-validation-messsage-service>
+											</div>
+											<div class="md-form text-left">
+												<input type="password" id="createPassword" class="form-control" #password formControlName="password"
+												 mdbInputDirective autocomplete="false" readonly onfocus="this.removeAttribute('readonly');">
+												<label for="createPassword">Create Password<span class="required">*</span></label>
+												<span class="d-block tinyText c-light">Password should be 8 characters long, should contain One lowercase,
+													One Uppercase, One special character, One number.</span>
+												<jhi-validation-messsage-service [controlname]="'Password'" [control]="registerModal.controls.password"></jhi-validation-messsage-service>
+											</div>
+
+											<div class="text-center">
+												<button [disabled]="registerModal.invalid || errorEmailExists" type="submit" size="md" mdbBtn class="waves-light "
+												 mdbWavesEffect jhiTranslate="home.signUp">CREATE ACCOUNT</button>
+											</div>
+											<div class="form-check tinyText pl-0 text-left my-3 terms_label">
+												<label class="form-check-label" for="exampleCheck1">By clicking 'create account' you agree to our <a href="javascript:void(0);"
+													 (click)="termcondition()">Terms of service</a> and <a href="javascript:void(0);" (click)="privacypolicy()">Privacy
+														policy</a>
+												</label>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="select_type" *ngIf="currentView === 'VerifyEmail'">
+							<div class="page-header py-5">
+								<h3 class="super-heading text-center" jhiTranslate="home.verifyEmail">Verify your Email account</h3>
+								<div class="col-lg-6 offset-lg-3">
+									<div class="text-left">
+										<span class="progress_bar" style="width:0%;"></span>
+									</div>
+								</div>
+								<div class="col-lg-8 offset-lg-2 text-center">
+									<span class="d-block c-light pt-3" jhiTranslate="home.otpLength" translateValues="{value: '{{_value}}'}">We
+										have sent you a 6 digit code to {{_value}}. If you have not received any Email, please check the SPAM folder
+										or click resend OTP.</span>
+								</div>
+							</div>
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6 offset-lg-3">
+										<form class="text-center mb-5" [formGroup]="emailVerificationModal" (ngSubmit)="verifyEmailOtp(emailVerificationModal)">
+											<div class="text-center">
+												<label class="err_msg hidden" *ngIf="errorOtpExpired" jhiTranslate="register.messages.error.otpexpired">Oops!
+													OTP code has expired. Please click re-send to receive a new one</label>
+												<label class="err_msg hidden" *ngIf="errorInvalidOTP" jhiTranslate="register.messages.error.invalidotp">Oops!
+													Incorrect code</label>
+
+												<div class="md-form text-center">
+													<input mdbInputDirective type="text" id="emailotp" mask="000-000" #verify placeholder="000-000" class="form-control text-center otp_text"
+													 [disabled]='isEnable' formControlName="otp">
+													<div>
+														<jhi-validation-messsage-service [controlname]="'OTP'" [control]="emailVerificationModal.controls.otp"></jhi-validation-messsage-service>
+													</div>
+													<span class="d-block c-light show_timer" *ngIf="showtimer">You can resend code in 0:{{timeLeft}} secs</span>
+													<a *ngIf="!showtimer && !isButnDisable" href="javascript:void(0)" class="d-inline-block my-3 name_link_color"
+													 (click)="resendOtp()" jhiTranslate="home.resendOtp">Resend OTP</a>
+													<div class="alert alert-danger hidden" *ngIf="errorOtpLimitExceed" jhiTranslate="register.messages.error.otplimitexceed">
+														OTP code was sent 3 times. Please try again after 30 minutes.
+													</div>
+													<div class="alert alert-danger hidden" *ngIf="errorInvalidOtpExceed" jhiTranslate="register.messages.error.invalidotplimitexceed">
+														You have entered incorrect OTP for 3 times.Please try again after 30 minutes.
+													</div>
+												</div>
+												<div class="text-center" display="inline">
+													<button (click)="back()" type="button" size="md" mdbBtn class="name_btn_outline btn-outline-primary"
+													 mdbWavesEffect>Back</button>
+													<button [disabled]="emailVerificationModal.invalid" type="submit" size="md" mdbBtn class="waves-light name_btn name_btn_gradient"
+													 mdbWavesEffect>Submit OTP</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="select_type" *ngIf="currentView === 'SessionExpire'">
+							<div class="page-header my-5 py-5">
+								<div class="container-fluid">
+									<div class="text-center">
+										<h3 class="super-heading text-center">Your session has timed out.</h3>
+										<div>
+											<p class="c-light"><a href="javascript:void(0)" (click)="setView('AccountType')">Click here</a> to set-up your account.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="select_type" *ngIf="currentView === 'AccountSetup'">
+							<div class="page-header pb-5">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-6 offset-md-3">
+											<h3 class="super-heading text-center py-5" jhiTranslate="home.signUpComplete">
+												Setting up your account
+												<div class="text-left">
+													<span class="progress_bar" style="width:100%;"></span>
+												</div>
+											</h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<jhi-login-modal #loginModal></jhi-login-modal>
+</ng-container>
+
+<div mdbModal #megaMenu="mdbModal" class="modal megaModal fade top" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+   aria-hidden="true" [config]='{backdrop: false, ignoreBackdropClick: true}'>
+    <div class="modal-dialog modal-fluid modal-full-height" role="document">
+        <div class="modal-content">
+            <div class="modal-body d-flex">
+				<div class="container align-self-center">
+					<div class="megaMenuHeading">
+						<h3>Explore the Future Of Banking</h3>
+					</div>
+					<div class="megaMenuList p-0">
+						<div class="row">
+							<div class="col-lg-3 col-md-6 col-sm-6 mainList">
+								<ul>
+									<li><a routerLink="/">Home</a></li>
+									<li><a routerLink="/">Personal</a></li>
+									<li><a routerLink="/business">Business</a></li>
+									<li><a routerLink="/cas-token">Token</a></li>
+									<li><a routerLink="/pricing">Pricing</a></li>
+									<li><a routerLink="/company">Company</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 subList">
+								<h4>Know More</h4>
+								<ul>
+									<li><a routerLink="/our-team">Team</a></li>
+									<li><a routerLink="/our-advisors">Advisors</a></li>
+									<li><a routerLink="/road-map">Roadmap</a></li>
+									<li><a routerLink="/events">Events</a></li>
+									<li><a routerLink="/media">In The Press</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 subList">
+								<h4>Resources</h4>
+								<ul>
+									<li><a href="https://s3.eu-central-1.amazonaws.com/cdn-name-branding/name-bank/pdf/name_wp_v2.pdf" target="_blank">Whitepaper</a></li>
+									<li><a href="https://s3.eu-central-1.amazonaws.com/cdn-name-branding/name-bank/pdf/presentation.pdf" target="_blank">Presentation</a></li>
+									<li><a href="https://medium.com/name" target="_blank">Blog</a></li>
+									<li><a href="https://help.name.com/" target="_blank">Help</a></li>
+								</ul>
+							</div>
+							<div class="col-lg-3 col-md-6 col-sm-6 subList">
+								<h4>Existing User</h4>
+								<ul>
+									<li><a href="javascript:void(0);" (click)="loginModal.show()">SIGN IN</a></li>
+								</ul>
+								<div class="get_started mt-5">
+									<h3>Join the Money Revolution</h3>
+									<jhi-quick-register-form></jhi-quick-register-form>
+									<!-- <a href="https://t.me/nameltd" target="_blank" class="btn btn-simple animated fadeInUp telegram_link m-0 pl-0"
+											data-animate="fadeInUp" data-delay=".4" style="visibility: visible; animation-delay: 0.4s;"><em class="fa fa-paper-plane"></em> Join us on Telegram</a>
+										<a href="https://s3.eu-central-1.amazonaws.com/cdn-name-branding/name-bank/pdf/name_wp_v2.pdf" target="_blank" class="btn btn-simple animated fadeInUp telegram_link m-0 pl-0"
+											data-animate="fadeInUp" data-delay=".4" style="visibility: visible; animation-delay: 0.4s;"><i class="ion-document-text"></i> White Paper</a> -->
+								</div>
+							</div>
+						</div>
+						<div class="copyrightSection">
+							<div class="row">
+								<div class="col-lg-6">
+									<p>© Copyright 2019 name. All rights reserved.</p>
+								</div>
+								<div class="col-lg-6">
+									<ul class="text-lg-right">
+										<li><a routerLink="/term-condition">Terms & Conditions</a></li>
+										<li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
