@@ -1,0 +1,28 @@
+<jhi-page-ribbon></jhi-page-ribbon>
+<div>
+    <router-outlet name="navbar"></router-outlet>
+    
+</div>
+<div class="container-fluid">
+
+   <div class="row">
+          <div class="col-md-2 " id="collapseExample" [ngbCollapse]="isCollapsed" style="border-right: 2px solid#e1e1e1 ">
+             <ul>
+<li>ghjghghjg</li>
+<li>jf85857</li>
+<li>gjfhf bgjhg</li>
+
+             </ul>  
+            <!-- <mat-list>
+                  <mat-list-item> Pepper </mat-list-item>
+                  <mat-list-item> Salt </mat-list-item>
+                  <mat-list-item> Paprika </mat-list-item>
+              </mat-list> -->
+          </div>
+          <div class="card jh-card col-md">
+              <router-outlet></router-outlet>
+              <router-outlet name="popup"></router-outlet>
+          </div>
+    </div>
+    <jhi-footer></jhi-footer>
+</div>
