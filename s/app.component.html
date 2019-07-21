@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-2">Logo</div>
+      <div class="col-md-5 col-md-auto">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+      <div class="col-md-3">
+        <form class="form-inline search-form">
+          <div class=" row">
+              <div class="col-4 form-group">
+              <mat-form-field>
+                <mat-label>Font size</mat-label>
+                <mat-select #fontSize value="16px" (selectionChange)="triggerResize()" style="width: 110px">
+                  <mat-option value="10px">10px</mat-option>
+                  <mat-option value="12px">12px</mat-option>
+                  <mat-option value="14px">14px</mat-option>
+                  <mat-option value="16px">16px</mat-option>
+                  <mat-option value="18px">18px</mat-option>
+                  <mat-option value="20px">20px</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+              <div class="col-8 form-group">
+                <mat-form-field class="example-full-width1">
+                    <input matInput placeholder="Favorite food" value="Sushi">
+                  </mat-form-field>
+            </div>
+            </div>
+        </form>
+
+      </div>
+      <div class="col-md-2">
+         <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="jumbotron text-center">
+<h1>My First Bootstrap Page</h1>
+<p>Resize this responsive page to see the effect!</p> 
+</div>
+
+<!-- <router-outlet></router-outlet> -->
