@@ -1,0 +1,38 @@
+Parent component html :
+
+ <app-sidebar [parentText]="parentText" (dataAdded) ="update($event)"></app-sidebar>
+
+Parent ts : 
+ parentText = "test title from parent" ;
+  dataList = [
+    {id:1,name:'test 1'},
+    {id:2,name:'test 2'},
+    {id:3,name:'test 3'},
+    {id:4,name:'test 4'},
+    {id:5,name:'test 5'},
+    {id:6,name:'test 6'}
+  ];
+  update(data:{id:number,name:string}){
+       console.log(this.dataList);
+       let currentIndex = this.dataList.findIndex(x=>x.id===data.id) ;
+       
+       this.dataList[currentIndex].name = data.name ;
+       console.log('rrrrrrrr',data,this.dataList,currentIndex);
+       
+  }
+
+  Child component Html  : 
+
+  <h2>{{parentText}}</h2>
+
+  <a (click)="childfunction()">Test Btn ttttttttt</a>
+
+  Child component ts: 
+
+  @Input('parentText') parentText:any ;
+  @Output() dataAdded = new EventEmitter<{id:number,name:string}>() ;
+
+
+ childfunction(){
+      this.dataAdded.emit({id:4,name:'aajaajajj'}) ; 
+  }
