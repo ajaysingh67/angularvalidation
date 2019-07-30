@@ -36,3 +36,25 @@ Parent ts :
  childfunction(){
       this.dataAdded.emit({id:4,name:'aajaajajj'}) ; 
   }
+
+***********************For Page link change *************************
+ 
+
+  this.router.events.subscribe(
+      (event: any) => {
+        if (event instanceof NavigationEnd) {
+          let currentPage = this.router.url.replace('/','');
+           if(Object.values(page).includes(currentPage)){
+                    this.isApplicationPage = true ;
+           } else {
+            this.isApplicationPage = false ;
+           }           
+        }
+      }
+    );
+
+   ngDoCheck(){
+    console.log(this.isApplicationPage);
+  }
+
+  ************************************************
