@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+@font-face {
+    font-family: 'Beth Ellen';
+    src: url('assets/font/BethEllen-Regular.ttf');
+}
+
+@include mat-core();
+// Available color palettes: https://material.io/design/color/
+$candy-app-primary: mat-palette($mat-blue);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
+
+@include angular-material-theme($candy-app-theme);
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Beth Ellen',
+  $display-1: mat-typography-level(36px, 50.4px, 200),
+  $subheading-1: mat-typography-level(24px, 33.6px, 400),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $input: mat-typography-level(13px, 1.125, 400)
+);
+@include mat-core($custom-typography);
