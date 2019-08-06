@@ -1,0 +1,67 @@
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+<table class="table table-bordered ">
+   <tr>
+      <th><mat-checkbox [(ngModel)]="isAllChecked"  (change)="onClickall($event.checked)" >Checked</mat-checkbox></th>
+       <th>Test 1 {{isAllChecked}}</th>
+       <th>Test 2</th>
+       <th>Test 3</th>
+       <th>Test 4</th>
+       <th>Test 5</th>
+       <th>Test 6</th>
+    </tr>
+     <tr>
+       <td><mat-checkbox [(ngModel)]="checkeddata[0].isselected" class="checkbtn" (change)="onClick1($event.checked,checkeddata[0].price)" >Checked</mat-checkbox></td>
+       <td>23423423</td>
+       <td>4247656</td>
+       <td>fgdfgf</td>
+       <td>23423423</td>
+       <td>4247656</td>
+       <td><a (click)="onClick($event)">Edit 123</a></td>
+     </tr>
+     <tr>
+        <td><mat-checkbox  [(ngModel)]="checkeddata[1].isselected" class="checkbtn" (change)="onClick1($event.checked,checkeddata[1].price)">Checked</mat-checkbox></td>
+        <td>23423423</td>
+        <td>4247656</td>
+        <td>fgdfgf</td>
+        <td>23423423</td>
+        <td>4247656</td>
+        <td (click)="onClick($event)">Edit 123</td>
+      </tr>
+</table>
+ amaounnnn  {{a1}}
+<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper   >
+    <mat-step [stepControl]="firstFormGroup" editable="false">
+      
+        <ng-template matStepLabel>Fill out your name</ng-template>
+       
+     
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" editable="false" [label]="'5555555555'" >
+          
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      
+    </mat-step>
+    <mat-step editable="false">
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
