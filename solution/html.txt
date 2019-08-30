@@ -1,0 +1,116 @@
+1)  What are “web workers” 
+
+2) difference between semantic and non semantic elements
+
+Semantic Elements:
+
+A semantic element clearly describes its meaning to both the browser and the developer. These elements clearly defines its content. In other terms semantic tags are those tags whose name can easily let you know which type of content take place in it. eg. <header>, <article> and <footer>.
+
+Non-Semantic Elements:
+
+Non-semantic element are the element which Tells nothing about its content. In other terms element whose name doesn’t suggest you what they do. e.g. <div> and <span>.
+
+3 )  What’s the difference between the <svg> and <canvas> elements
+
+ The <svg> element is a container for SVG graphics. SVG has several methods for drawing paths, boxes, circles, text, and even bitmap images.
+
+SVG is a language for describing 2D graphics, but <canvas> allows you to draw 2D graphics on the fly using JavaScript.
+
+SVG is XML-based, which means that every element is available within the SVG DOM. You can attach JavaScript event handlers for an element.
+
+In SVG, each drawn shape is remembered as an object. If attributes of an SVG object are changed, the browser can automatically re-render the shape.
+
+Canvas is rendered pixel by pixel. In canvas, once the graphic is drawn, it is forgotten by the browser. If its position should be changed, the entire scene needs to be redrawn, including any objects that might have been covered by the graphic.
+
+4) difference between HTML and HTML5
+
+5) What is <!DOCTYPE>? What are the different types of <!DOCTYPE> that are available
+
+The <!DOCTYPE> declaration provides instruction to the web browser to understand what information it should be display, and the need to start with <!DOCTYPE> declaration. In HTML5, DOCTYPE declaration is very short, and case-insensitive, and <!DOCTYPE html> is written at the top of every HTML5 page.
+
+The following DOCTYPE are also supported in HTML5:
+
+<!DocTYpe html>
+<!dOCtype html>
+<!doctype html>
+There are 3 types of DOCTYPES as mentioned below:
+
+Strict Doctype
+Frameset Doctype
+Transitional Doctype
+
+6) What is the minimum number of HTML5 tags that are required to create a Web page
+Minimum 3  HTML5 tags are required to create a Web page, such as (<HEAD>, <BODY>, <HTML>).
+
+7) Explain new Form input types in HTML5.
+
+8) What is image map in html5 : 
+ Answer: Image maps are a combination of URL and images, where clicking on these images (clickable area of the image) will open different new web pages.
+
+Two types of image maps are available in HTML5, i.e. client side and server side:
+
+The client-side image map is created by using two elements <area> and <map>, where the map holds the map information and the area element takes the attributes to define each section of the map. Server-side image map created by using <usemap> attribute, the usemap attribute is the name of our map.
+
+9 ) How to optimize website assets : 
+ We need to understand some basic optimization rules, in order to optimize website assets. Initially, we should decrease the download size and make fewer http requests.
+
+To optimize website assets we can follow the below techniques:
+
+File compression
+File concatenation
+CDN Hosting
+Offloading assets
+Re-organizing
+Refining code
+
+10 ) What is the use of MathML Element in HTML5 : 
+Answer: The word MathML (Mathematical Markup Language) is a markup language, that is used to show scientific and mathematical expression on the web. MathML is a form of XML (extensible markup language) to describe the Math notation.
+
+We can use <math>…</math> tags inside the HTML5 documents for implementing MathML element.
+
+11 ) What are the various formatting tags in HTML5 : 
+Marked text: Represents highlighted text for Reference purposes. We can use <marks> tags for text highlight.
+Deleted text: Specifies the deleted block of text. We can use <del> tags to implement a deleted text.
+Emphasized text: Defines the emphasized text. We can use <em> tags to implement an emphasized text.
+Inserted text: Inserts a block of text into a document. We can use <ins> tags to implement an inserted text.
+Small text: Display inserted text in a small size. We can use <small> tags to implement a small text.
+Superscript text: This is a superscripted text. We can use <sup> tags to implement a superscript text.
+Subscript text: This is a subscripted text. We can use <sub> tags to implement a superscript text.
+
+12 ) Which element provides the autocomplete feature in a textbox :
+ In HTML5 <Datalist> element, provides the autocomplete feature in a textbox.
+
+13 ) What are the migrated tags from HTML4 to HTML5 :
+<div id = “footer”>                <footer>
+<div id = “header”>              <header>
+<div id = “menu”>                <nav>
+<div id = “post”>                   <article>
+<div id = “content”>            <section>
+
+14 ) What is Microdata in HTML5 : 
+ Microdata is a new simple semantic syntax, that is used to add the nested groups of name and value pair of data to documents, that are commonly based on the page content. Microdata is used for new global attributes.
+
+15 ) What is the use of <figure> tag in HTML5
+
+Answer: The figure tag is used to add an image in the document on a web page.
+
+16 ) What is the best way to group form elements : 
+
+The <fieldset> tag can be used to group some of the form elements. When the purpose is to provide some HTML elements as a group to the user then, fieldset tag is the best one to use. It takes another tag in it <legend> which provides a title to the grouped elements.
+
+17) Explain Graphics in HTML5: 
+
+ HTML5 has two types of providing graphics, SVG and Canvas. SVG is helpful when using devices like tablets, iPads etc. Whereas, Canvas is an area in the document or HTML page where graphics can be drawn.
+
+18 ) When do we use a meter tag : 
+ This tag is also known as a gauge and is used to define a scalar measurement which is in a known range.
+
+19 ) How are Web Workers APIs used in HTML5 :
+ Using Web Workers APIs provide a way to run something in the background with which certain tasks can be performed without distracting the user interface.
+
+20 ) Explain Microdata in HTML5 :
+ Using Microdata, the metadata is nested within existing content on web pages. Search engines extract the microdata from a web page to provide a good browsing experience.
+
+21) What is the difference between the font size units em and rem : 
+
+ By default, the font size in a browser is 16px and can be increased or decreased in the browser settings. 1em equals the font-size given in the browser. Whereas, the rem value depends on root element that is HTML tag.

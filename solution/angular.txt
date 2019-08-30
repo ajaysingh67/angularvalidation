@@ -1,0 +1,146 @@
+Q :  Angular Authentication and Authorization :
+
+ The user login credentials are passed to an authenticate API, which is present on the server. Post server-side validation of the credentials, a JWT (JSON Web Token) is returned. The JWT has information or attributes regarding the current user. The user is then identified with the given JWT. This is called authentication.
+
+Post logging-in successfully, different users have a different level of access. While some may access everything, access for others might be restricted to only some resources. The level of access is authorization.
+
+
+Q : Lifecycle Hooks angular: 
+constructor
+This is invoked when Angular creates a component or directive by calling new on the class.
+
+ngOnChanges
+Invoked every time there is a change in one of th input properties of the component.
+
+ngOnInit
+Invoked when given component has been initialized.
+This hook is only called once after the first ngOnChanges
+
+ngDoCheck
+Invoked when the change detector of the given component is invoked. It allows us to implement our own change detection algorithm for the given component.
+
+ngOnDestroy
+This method will be invoked just before Angular destroys the component.
+Use this hook to unsubscribe observables and detach event handlers to avoid memory leaks.
+
+ngAfterContentInit
+Invoked after Angular performs any content projection into the components view (see the previous lecture on Content Projection for more info).
+
+ngAfterContentChecked
+Invoked each time the content of the given component has been checked by the change detection mechanism of Angular.
+
+ngAfterViewInit
+Invoked when the component’s view has been fully initialized.
+
+ngAfterViewChecked
+Invoked each time the view of the given component has been checked by the change detection mechanism of Angular.
+
+
+Q: What is Transpiling in Angular : 
+
+Transpiling is the process of converting the typescript into javascript (using Traceur, a JS compiler). Though typescript is used to write code in the Angular applications, the code is internally transpiled into javascript. 
+
+Q : Differentiate between Components and Directives in Angular 5.
+Components break up the application into smaller parts; whereas, Directives add behavior to an existing DOM element. 
+
+Q : What is the use of @Input and @Output? 
+When it comes to the communication of Angular Components, which are in Parent-Child Relationship; we use @Input in Child Component when we are passing data from Parent to Child Component and @Output is used in Child Component to receive an event from Child to Parent Component. 
+
+Q : What is Dependency Injection in Angular 4?
+When a component is dependent on another component the dependency is injected/provided during runtime. 
+
+Q: What is RouterOutlet?
+RouterOutlet is a substitution for templates rendering the components. In other words, it represents or renders the components on a template at a particular location. 
+
+Q :  What are ngModel and how do we represent it? 
+ngModel is a directive which can be applied on a text field. This a two-way data binding. ngModel is represented by [()] 
+
+Q :  Differentiate between Observables and Promises.
+Observables are lazy, which means nothing happens until a subscription is made. Whereas Promises are eager; which means as soon as a promise is created, the execution takes place. Observable is a stream in which passing of zero or more events is possible and the callback is called for each event. Whereas, promise handles a single event. 
+
+Q: What is an AsyncPipe in Angular? 
+When an observable or promise returns something, we use a temporary property to hold the content. Later, we bind the same content to the template. With the usage of AsyncPipe, the promise or observable can be directly used in a template and a temporary property is not required. 
+
+Q:  What are the Pipes? 
+This feature is used to change the output on the template; something like changing the string into uppercase and displaying it on the template. It can also change Date format accordingly. 
+
+1) Differentiate between Angular and AngularJS
+
+2) what is string interpolation :
+String interpolation in Angular is a special syntax that uses template expressions within double curly {{ }} braces for displaying the component data. It is also known as moustache syntax.
+
+3) What is the difference between an Annotation and a Decorator in Angular :
+ Annotations in angular are “only” metadata set of the class using the Reflect Metadata library. They are used to create an “annotation” array. On the other hand, decorators are the design patterns that are used for separating decoration or modification of a class without actually altering the original source code.
+
+
+4) What are directives in Angular : 
+
+A core feature of Angular, directives are attributes that allow you to write new HTML syntax, specific to your application. They are essentially functions that execute when the Angular compiler finds them in the DOM.  The Angular directives are segregated into 3 parts:
+
+Component Directives
+Structural Directives
+Attribute Directives
+
+5) What is data binding :
+ In Angular, data binding is one of the most powerful and important features that allow you to define the communication between the component and DOM(Document Object Model). It basically simplifies the process of defining interactive applications without having to worry about pushing and pulling data between your view or template and component. In Angular, there are four forms of data binding:
+
+ String Interpolation
+Property Binding
+Event Binding
+Two-Way Data Binding
+
+6)  Define the ng-content Directive
+
+7 ) What are the building blocks of Angular
+
+Components – A component controls one or more views. Each view is some specific section of the screen. Every Angular application has at least one component, known as the root component. It is bootstrapped inside the main module, known as the root module. A component contains application logic defined inside a class. This class is responsible for interacting with the view via an API of properties and methods.
+Data Binding – The mechanism by which parts of a template coordinates with parts of a component is known as data binding. In order to let Angular know how to connect both sides (template and its component), the binding markup is added to the template HTML.
+Dependency Injection (DI) – Angular makes use of DI to provide required dependencies to new components. Typically, dependencies required by a component are services. A component’s constructor parameters tell Angular about the services that a component requires. So, a dependency injection offers a way to supply fully-formed dependencies required by a new instance of a class.
+Directives – The templates used by Angular are dynamic in nature. Directives are responsible for instructing Angular about how to transform the DOM when rendering a template. Actually, components are directives with a template. Other types of directives are attribute and structural directives.
+Metadata – In order to let Angular know how to process a class, metadata is attached to the class. For doing so decorators are used.
+Modules – Also known as NgModules, a module is an organized block of code with a specific set of capabilities. It has a specific application domain or a workflow. Like components, any Angular application has at least one module. This is known as the root module. Typically, an Angular application has several modules.
+Routing – An Angular router is responsible for interpreting a browser URL as an instruction to navigate to a client-generated view. The router is bound to links on a page to tell Angular to navigate the application view when a user clicks on it.
+Services – A very broad category, a service can be anything ranging from a value and function to a feature that is required by an Angular app. Technically, a service is a class with a well-defined purpose.
+Template – Each component’s view is associated with its companion template. A template in Angular is a form of HTML tags that lets Angular know that how it is meant to render the component.
+
+
+8 ) differences between Angular and jQuery :
+ Angular has two-way data binding, jQuery does not
+Angular provides support for RESTful API while jQuery doesn’t
+jQuery doesn’t offer deep linking routing though Angular supports it
+There is no form validation in jQuery whereas it is present in Angular
+
+
+9)  overview of Angular architecture
+
+10 ) What is AOT (Ahead-Of-Time) Compilation :
+Each Angular app gets compiled internally. The Angular compiler takes in the JS code, compiles it and then produces some JS code. This happens only once per occasion per user. It is known as AOT (Ahead-Of-Time) compilation.
+
+11) : What is Data Binding? How many ways it can be done?
+Answer: In order to connect application data with the DOM (Data Object Model), data binding is used. It happens between the template (HTML) and component (TypeScript). There are 3 ways to achieve data binding:
+
+Event Binding – Enables the application to respond to user input in the target environment
+Property Binding – Enables interpolation of values computed from application data into the HTML
+Two-way Binding – Changes made in the application state gets automatically reflected in the view and vice-versa. The ngModel directive is used for achieving this type of data binding.
+
+12) explain the various types of filters in Angular
+
+
+13 ) What is ViewEncapsulation and how many ways are there do to do it in Angular?
+Answer: To put simply, ViewEncapsulation determines whether the styles defined in a particular component will affect the entire application or not. Angular supports 3 types of ViewEncapsulation:
+
+Emulated – Styles used in other HTML spread to the component
+Native – Styles used in other HTML doesn’t spread to the component
+None – Styles defined in a component are visible to all components of the application
+
+14) What is a provider in Angular : 
+
+A provider is a configurable service in Angular. It is an instruction to the Dependency Injection system that provides information about the way to obtain a value for a dependency. It is an object that has a $get() method which is called to create a new instance of a service. A Provider can also contain additional methods and uses $provide in order to register new providers.
+
+15) difference between a service() and a factory()
+
+16 ) What is Pure and Impure Pipes
+
+17 )What is NgZone service? How Angular is notified about the changes?
+
+

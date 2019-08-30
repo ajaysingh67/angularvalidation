@@ -1,0 +1,51 @@
+
+1) Explain the term Responsive web design.
+
+2) What are CSS counters?
+
+CSS counters are variables which can be incremented by rules of CSS that inspector track how many times the variable has been used.
+
+3) What is CSS flexbox .
+ It allows you to design a flexible responsive layout structure without using any float or positioning property of CSS. To use CSS flexbox you need to define a flex container initially.
+
+4) Write all the properties of flexbox :
+ flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+
+5) position states used in CSS
+Static(default)
+Relative
+Fixed
+absolute
+
+6 ) Differentiate between inline and block element.
+
+7 ) Different versions of CSS are:
+
+CSS 1
+CSS 2
+CSS 2.1
+CSS 3
+CSS 4
+
+8 ) Benefits of using CSS sprites
+
+9 ) difference between Physical Tags and Local Tags
+Physical Tags : - 
+Physical tags are used to indicate how a particular character is to be formatted
+Physical tags are also referred to as presentational mark-up
+Physical tags are newer versions
+
+Local Tags :-
+	logical tags are used to indicate by the visually impaired and put emphasis on the text.
+	Logical tags are useless for appearances
+	Logical tags are old and concentrate on content
+
+
+
+  HTML : 
+

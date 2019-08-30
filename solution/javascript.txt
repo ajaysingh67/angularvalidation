@@ -1,0 +1,192 @@
+1) JavaScript Data Types : Number ,String ,Boolean,Object ,Undefined
+
+2) What is 'this' keyword in JavaScript :
+ 'This' keyword refers to the object from where it was called.
+var house = {
+  price: 100000,
+  squareFeet: 2000,
+  owner: 'Taylor',
+  getPricePerSquareFoot: function() {
+    return this.price / this.squareFeet;
+  }
+};
+ 
+console.log(house.price);
+console.log(house.getPricePerSquareFoot());
+
+3)  Which symbol is used for comments in Javascript?
+// for Single line comments and /* Multi Line Comment */
+
+4) difference between ViewState and SessionState :
+'ViewState' is specific to a page in a session.
+
+'SessionState' is specific to user specific data that can be accessed across all pages in the web application.
+
+5) Explain how can you submit a form using JavaScript?
+ document.form[0].submit();
+
+6) How can the style/class of an element be changed?
+ document.getElementById("myText").style.fontSize = "20? 
+document.getElementById("myText").className = "anyclass";
+
+7) difference between "==" and "==="
+ "==" checks only for equality in value whereas "===" is a stricter equality test and returns false if either the value or the type of the two variables are different.
+
+8 ) Types of Pop up boxes available in JavaScript
+ Alert ,Confirm and Prompt 
+ The prompt() method asks the user for some small input
+
+9 ) forced to load another page :
+   location.href="url of page"
+
+10 ) use of Backslash ? 
+   is used when working with special characters like single quotes, double quotes, apostrophes and ampersands. Place backslash before the characters to make it display.
+
+11 ) Which keywords are used to handle exceptions?
+  Try{ Code }
+  Catch(exp){Code to throw an exception}
+  Finally{ Code runs either it finishes successfully or after catch }
+
+12) types of errors in JavaScript
+ Load time errors or Syntax Errors: Errors which come up when loading a web page like improper syntax errors are known as Load time errors and it generates the errors dynamically.
+Run time errors: Errors that come due to misuse of the command inside the HTML language.
+Logical Errors: These are the errors that occur due to the bad logic performed on a function which is having different operation.
+
+13 ) way to get the status of a CheckBox
+ document.getElementById('checkbox1').checked
+
+14 ) What is a prototype
+
+15 ) How does the new keyword work?
+The new keyword has four steps:
+Create a new object
+Link the object to its prototype, naming that link __proto__
+Execute the constructor function, setting the context (this) to the new object
+Return the created object.
+
+16 ) Difference Between Class & Prototypal Inheritance :
+ Classical Inheritance	: 
+Classes are immutable. You can't modify or add new methods to them at runtime.
+Classes may or may not support multiple inheritance.
+It's verbose and complicated. You have abstract classes, final classes, interfaces, etc.
+
+Prototypal Inheritance :
+        Objects can inherit from multiple prototypes.
+        Prototypes are flexible. They may be either mutable or immutable.
+	It's simple. You only have objects and extending objects is the only operation required.
+
+17 ) differences between one-way data flow and two-way data binding.
+
+18 ) javascript interface
+
+19 ) What is Hoisting in JavaScript?
+
+20 how object are created
+
+21 ) javascript difference between bind call and apply
+
+22 ) javascript watcher
+
+23) angular change detection
+
+24) difference between css position
+
+25) login api impllementation , token 
+
+26) how you use multipe api in angular (merge map)
+
+27) what is closure :
+A closure is an inner function that has access to the scope of an enclosing function .
+ a) variables in its own scope.
+ b) variables in the sope of the outler function
+ c) variables in the global scope
+
+28) variable and function hoisting :
+ 
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope 
+ same for variable and function we declair before use
+
+29 ) use of self :
+
+ var myCar = {
+    color: "Blue",
+    logColor: function() {
+        var self = this;
+        console.log("In logColor - this.color: " + this.color);
+        console.log("In logColor - self.color: " + self.color);
+        (function() {
+            console.log("In IIFE - this.color: " + this.color);
+            console.log("In IIFE - self.color: " + self.color);
+        })();
+    }
+};
+ 
+myCar.logColor();
+
+30) curry function : 
+Currying is the process of taking a function with multiple arguments and returning a series of functions that take one argument and eventually resolve to a value .
+curried function is simply a sequence of functions in which each function in the sequence takes in one or multiple arguments.
+so the curry function taking one argument at a time it is a sequance of function
+
+ function volume1(length) {
+  return function(width) {
+    return function(height) {
+      return height * width * length;
+    }
+  }
+ volume1(2)(3)(4);
+31)  An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined.
+  
+32) 
+ (function() {
+  var x = y = 200;
+})();
+ 
+console.log('y: ', y);
+
+
+
+    Css
+
+Explain the term Responsive web design
+What are CSS counters?
+console.log('x: ', x);
+}
+
+33 )
+ console.log(typeof null);   =>  object
+console.log(typeof undefined); => undefined 
+console.log(typeof {}); =>  object
+console.log(typeof []); =>  object
+
+34)  what is constructor :
+
+35 ) difference between Local Storage , sessin storage and cookie
+
+Web storage can be viewed simplistically as an improvement on cookies, providing much greater storage capacity. Available size is 5MB which considerably more space to work with than a typical 4KB cookie.
+The data is not sent back to the server for every HTTP request (HTML, images, JavaScript, CSS, etc) - reducing the amount of traffic between client and server.
+The data stored in localStorage persists until explicitly deleted. Changes made are saved and available for all current and future visits to the site.
+It works on same-origin policy. So, data stored will only be available on the same origin.
+Cookies:
+
+We can set the expiration time for each cookie
+The 4K limit is for the entire cookie, including name, value, expiry date etc. To support most browsers, keep the name under 4000 bytes, and the overall cookie size under 4093 bytes.
+The data is sent back to the server for every HTTP request (HTML, images, JavaScript, CSS, etc) - increasing the amount of traffic between client and server.
+sessionStorage:
+
+It is similar to localStorage.
+Changes are only available per window (or tab in browsers like Chrome and Firefox). Changes made are saved and available for the current page, as well as future visits to the site on the same window. Once the window is closed, the storage is deleted
+The data is available only inside the window/tab in which it was set.
+The data is not persistent i.e. it will be lost once the window/tab is closed. Like localStorage, it works on same-origin policy. So, data stored will only be available on the same origin.
+
+ 
+
+
+
+
+
+ 
+
+
+
+
