@@ -1,0 +1,53 @@
+  // signup-form.component.spec.ts
+import { SignupFormComponent } from './signup-form.component';
+
+describe('SignupFormComponent', () => {
+    let component: SignupFormComponent;
+    let fixture: ComponentFixture<SignupFormComponent>;
+
+    beforeEach(async(() => {
+
+      TestBed.configureTestingModule({
+            declarations: [SignupFormComponent],
+            imports: [
+                ReactiveFormsModule,
+                FormsModule
+            ]
+        })
+            .compileComponents();
+    }));
+
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SignupFormComponent);
+        component = fixture.componentInstance;
+        component.ngOnInit();
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
+
+    it('form invalid when empty', () => {
+        expect(component.user.valid).toBeFalsy();
+    });
+   it('form invalid when empty', () => {
+         let fname = component.user.controls['fname'];
+         name.setValue("xxxx");
+         let lname = component.user.controls['lname'];
+          name.setValue("yyyyy");
+        expect(component.user.valid).toBeTruthy();
+    });
+
+    it('name field validity', () => {
+        let name = component.user.controls['name'];
+        expect(name.valid).toBeFalsy();
+
+        name.setValue("");
+        expect(name.hasError('required')).toBeTruthy();
+
+        name.setValue("A");
+        expect(name.hasError('minLength')).toBeTruthy();
+    });
+
+});

@@ -1,0 +1,65 @@
+describe() =>  group of tests
+it =>  'our test cause' 
+beforeEach(()=>{})
+afterEach(()=>{})
+beforeAll(()=>{})
+afterAll(()=>{})
+
+For Form :
+beforeEach(()=>{
+   conponent = new TestComponent(new FormBuilder());
+})
+it('test for hase name and email',()=>{
+   expect(component.form.contains('name').toBeTruthy())
+ })
+it('test for required value',()=>{
+     let control = component.form.get('name');
+     control.setValue('');
+     expect(control.valid).toBeFalsy();
+})
+
+fixture.debugElement.queryAll(By.css('classname'))
+let de = fixture.debugElement.query(By.css('classname'));
+check attribute exist or not ;
+expect(de.classes['attributeName']).toBeTruthy();
+
+let button = fixture.debugElement.query(By.css('className'));
+button.triggerEventHandler('click',null)
+ expect(component.totalVotes).toBe(1);
+
+************** services ******************
+let services = TestBed.get(ServiceClassName);
+spyON(servces,'getTodos').and.returnValue(Observable.form([1,2,3]))
+fixture.detectChanges();
+expect(component.todos.length).toBe(3);
+
+***************Router Stub***********************
+class RouterStub{
+	navigate(params){ }
+}
+class ActivatedRouteStub{
+  params : Observable<any> = Observable.empty();
+}
+ TestBed.configureTestingModule({ 
+  imports:[RouterTestingModule.withRoutes([])],
+  providers:[{provide:Router ,useClass:RouterStub}]
+  providers:[{provide:ActivatedRoute ,useClass:ActivatedRouteStub}]
+ })
+******************************************
+it('should redired the user to user page',()=>{
+    let router = TestBed.get(Router);
+    let spy = spyOn(router,'navigate');
+    component.save();
+    expect(spy).toHaveBeenCalledWith(['users']);
+})
+
+it('should have a router outler',()=>{  
+    let de = fixture.debugElement.query(By.directive(RouterOutlet));
+   expect(de).not.toBeNull();
+});
+it('should have a link to todos page',() =>{
+    let de = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+    let index = de.findIndex(de=>de.properties['href'] === '/todos') ;
+    expect(index).toBeGreaterThan(-1);
+})
+
