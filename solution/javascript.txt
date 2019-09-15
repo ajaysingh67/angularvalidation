@@ -179,14 +179,228 @@ Changes are only available per window (or tab in browsers like Chrome and Firefo
 The data is available only inside the window/tab in which it was set.
 The data is not persistent i.e. it will be lost once the window/tab is closed. Like localStorage, it works on same-origin policy. So, data stored will only be available on the same origin.
 
+ ********************************************************************
+Q* :  What is the difference between test () and exec () methods?
+Answer: Both test () and exec () are RegExp expression methods.
+Using test (), we will search a string for a given pattern, if it finds the matching text then it returns the Boolean value ‘true’ and else it returns ‘false’.
+But in exec (), we will search a string for a given pattern, if it finds the matching text then it returns the pattern itself and else it returns ‘null’ value.
+
+Q* :  What is JavaScript ‘Strict Mode’?
+
+Answer: ‘Strict mode’ is a restricted variant of JavaScript.
+Usually, JavaScript is ‘not very strict’ in throwing errors.
+But in ‘Strict mode’ it will throw all types of errors, even the silent errors. Thus, the process of debugging becomes easier. And the chances for making mistake for the developer is reduced.
+
+
+Q* : What are the characteristics of JavaScript ‘Strict Mode’?
+
+Answer: Given below are the characteristics of JavaScript ‘Strict Mode’:
+
+	‘Strict Mode’ will stop developers from creating global variables.
+	Developers are restricted from using duplicate parameters.
+	Strict mode will restrict you from using JavaScript keyword as a variable name or function name.
+	Strict mode is declared with ‘use strict’ keyword at the beginning of the script.
+	All browser support strict mode.
+
  
+Q #14) What are Self Invoking Functions?
+
+Answer: They are also known as ‘Immediately Invoked Function Expressions’ or ‘Self Executing Anonymous Functions’. These functions are invoked automatically in the code, hence they are named as ‘Self Invoking Functions’.
+Usually, we define a function and invoke it, but if we want to execute a function automatically where it is explained, and if we are not going to call it again, we can use anonymous functions. And these types of function have no name.
+
+	example :  The syntax for the Self-Invoking function:
+
+	(function () {
+	return () } () ;
+	Here the last ‘()’ parenthesis in the syntax states that it is a function expression.
+	
+Q : What is the difference between ‘var’ and ‘let’ keyword?
+
+’Var’ keyword has function scope. The variable defined with var is available anywhere within the function
+A variable declared with ‘let’ keyword has a scope only with in that block. So, let has a Block Scope.	
+
+Q : What is the difference between ‘let’ and ‘const’
+
+Q # : What is the difference between ‘function declaration’ and ‘function expression’?
+
+		function add(first_num,second_num){
+		return first_num + second_num;
+		}
+		var substract = function sub(first_num,second_num){
+		return first_num - second_num;
+		}
+
+		As shown in the example add() is a function declaration and subtract() is a function expression. The syntax of function declaration is like a function which is saved into a variable.
+
+		Function declarations are hoisted but function expressions are not hoisted.
+Q # : What is negative infinity?
+
+Negative Infinity is a number in JavaScript which can be derived by dividing negative number by zero.
+
+22. What are all the looping structures in JavaScript?
+
+Following are looping structures in Javascript:
+
+For
+While
+do-while loops
+
+Q # : how to detect the operating system on the client machine?
+
+In order to detect the operating system on the client machine, the navigator.platform string (property) should be used.
+
+Q # : What are escape characters?
+
+	Escape characters (Backslash) is used when working with special characters like single quotes, double quotes, apostrophes and ampersands. Place backslash before the characters to make it display.
+
+	Example:
+	document.write "I m a "good" boy"
+	document.write "I m a \"good\" boy"
+	
+Q # : What is the use of type of operator?
+
+'Typeof' is an operator which is used to return a string description of the type of a variable.
+
+Q # : What is the use of blur function?
+
+Blur function is used to remove the focus from the specified object.
+
+Q # : What is unshift method in JavaScript?
+
+Unshift method is like push method which works at the beginning of the array. This method is used to prepend one or more elements to the beginning of the array.
+
+Q # : Define event bubbling?
+
+JavaScript allows DOM elements to be nested inside each other. In such a case, if the handler of the child is clicked, the handler of parent will also work as if it were clicked too.
+
+Q # : Write the point of difference between web-garden and a web-farm?
+
+Both web-garden and web-farm are web hosting systems. The only difference is that web-garden is a setup that includes many processors in a single server while web-farm is a larger setup that uses more than one server.
 
 
+Q # : What are the various functional components in JavaScript?
+
+The different functional components in JavaScript are-
+
+First-class functions: Functions in JavaScript are utilized as first class objects. This usually means that these functions can be passed as arguments to other functions, returned as values from other functions, assigned to variables or can also be stored in data structures.
+
+Nested functions: The functions, which are defined inside other functions, are called Nested functions. They are called 'everytime' the main function is invoked.
 
 
+Q # : Define unescape() and escape() functions?
 
- 
+		The escape () function is responsible for coding a string so as to make the transfer of the information from one computer to the other, across a network.
+		For Example:
+		<script>
+			document.write(escape("Hello? How are you!"));
+		</script>
+		Output: Hello%3F%20How%20are%20you%21
+		The unescape() function is very important as it decodes the coded string.
+		It works in the following way. For example:
+		<script>
+			document.write(unescape("Hello%3F%20How%20are%20you%21"));
+		</script>
+		Output: Hello? How are you!
+		
+Q # : What does the following statement declares?
 
+	var myArray = [[[]]];
+	It declares a three dimensional array.
 
+Q # : What type of variables we use in JavaScript?
+	Ans. We use object data type variables in JavaScript.
 
+Q # : What are the ways used to read and write a file in JavaScript?
+	Ans. Two ways are available to read and write a file, they are:
 
+	JavaScript Expressions
+	Webpages and Active X objects	
+
+Q # : Mention the different types of functions that are supported by JavaScript? Define each of them?
+		Ans. There are two types of functions which are supported by JavaScript. They are -
+
+		Anonymous function- This type of function generally has no name and this is the difference between it and a normal function.  
+		Named function- On the other hand, this function is named properly and specifically.	
+
+Q # : What is the difference between the scope of the variables in JavaScript?
+	Ans. JavaScript variables have different scope. Scope of the variable is nothing but the functionality of the variable.
+
+	Global variables- Global variables consist of global scope whereas these variables can be utilized in the whole program repeatedly.
+	Local Variables- Local variables have no scope and used only once in the whole program.
+	
+Q # : What is the meaning of the word 'callback'?
+Ans. The callback is a typical function of the JavaScript which can be passed as an option or argument of JavaScript. Sometimes, callbacks can also be termed as simple events. Users are given calls to react to different kind of triggered situations.
+
+Q # : What is the difference between Attributes and properties?
+	Ans. Attributes- Attributes provide the information about the details given to objects like name, age, id, etc,
+	Properties- Properties gives information about the values given to the objects.
+	
+Q # : What are the possible ways to define a variable in JavaScript?
+	Ans. There are three possible ways to declare a variable in JavaScript are:
+
+	Var- variables and values of variables can be declared to the Variable statement by Variable statement. Example - var b = 20;. Declaration of variables should be done before the execution of code.
+	Const- A constant variables are assigned with one value only once before the execution of code.
+	let- If let statements are used in the variable declaration, the variable values can be reassigned before the execution of code.
+
+Q # : What are the terms BOM and DOM in JavaScript?
+	Ans. BOM- BOM is a Browser Object Model, in which the window object is supported by all the browsers. The JavaScript objects, variables and functions also become the members of the window object. This model deals with the objects of browsers like location, navigator, history, and screen.
+	DOM- DOM is a Document Object Model in a JavaScript helps to access document and HTML elements. When a web page is loaded the browser creates a DOM for the page. All the objects on the page all arranged in an order.
+	
+Q # : Explain the terms array slice() and array splice()?
+Ans. Array slice() method removes the array items from the array and reforms the removed items into a new array. The selected items through an array slice() method are removed from the array and formed as another new array. 
+Array splice() method removes the items of the selected array from the array and does not form another array.
+
+Q # : Explain what is NaN() function?
+		Ans. A NAN (not a number) method is used to return a true value if the variable has no number.
+		function number(num)
+		{
+		if(isNaN(num))
+		{ 
+		returns if it is not a number;
+		}
+		return if it is a number;
+		}
+		
+Q # :Explain about MUL function in JavaScript?
+	Ans. MUL is a multiplication function. The multiplication of numbers can be done as a value is defined in the function and the value is returned by another function and the process goes on.
+
+	Example:
+	function  mul(a)
+	{
+	return function(b)
+	{
+	return function(c)
+	{
+	return  a*b*c;
+	};
+	};
+	}
+	
+Q # : How to represent the date object in JavaScript?
+	Ans. Date object in JavaScript helps to get information about the day, month and year. By using date object we can set the timer on the screen.
+
+	function display() 
+	{
+	var date = new date();
+	var day = date.getday();
+	var month= date.getmonth()+1;
+	Var year = date.getyear();
+	doc.write("date is: "+day+"/"+month+"/"+year+");
+	}
+	display();
+	
+Q # : What is the use of Weakmap object in JavaScript?
+Ans. Weakmap is similar to a collection of objects like a map. If the weak map object is set to a process, it considers each element as a key object and that key object will have a weak reference.
+
+function display()
+{
+var wm  = new WeakMap();
+var object1 = {};
+var object2 = {};
+var object3 = {};
+wm.set(object1, "AngularJS");
+wm.set(object2, "ReactJS");
+wm.set(object3, "VueJS");
+doc.writeIn(wm.has(object3));
+}
+display();

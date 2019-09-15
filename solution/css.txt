@@ -24,6 +24,23 @@ absolute
 
 6 ) Differentiate between inline and block element.
 
+Answer: Inline element does not have an element to set width and height and also it does not have the line break.
+
+Example: em, strong, etc.
+
+Block element specification:
+
+They do have the line break.
+They define the width by setting a container and also allow setting height.
+It can also contain an element that occurs in the inline element.
+Example:
+
+width and height
+max-width and max-height
+min-width and min-height
+hi (i=1-6)- heading element
+p- Paragraph element.
+
 7 ) Different versions of CSS are:
 
 CSS 1
@@ -47,5 +64,219 @@ Local Tags :-
 
 
 
-  HTML : 
+Q # : Explain the concept of Tweening.
 
+Answer: Tweening is the process in which we create intermediate frames between two images to get the appearance of the first image which develops into the second image.
+
+It is mainly used for creating animation.
+
+Q # :  What is a CSS pseudo class?
+
+Answer: It is a class which is used to define a special state of an HTML element.
+
+This class can be used by styling an element when a user snooped over it and also it can style an HTML element when it gets the focus.
+
+selector:pseudo-class {
+property:value;
+}
+Q # : Explain the concept of pseudo-elements in CSS.
+
+Answer: It is a feature of CSS which is used to style the given parts of an element.
+
+For Example, we can style the first letter or line of an HTML element.
+
+selector::pseudo-element {
+property:value;
+}
+
+Q # :  What are the CSS frameworks?
+CSS frameworks are the preplanned libraries which make easy and more standard compliant web page styling. The frequently used CSS frameworks are: -
+
+Bootstrap
+Foundation
+Semantic UI
+Gumby
+Ulkit
+
+Q # : What is Embedded Style Sheet?
+An Embedded style sheet is a CSS style specification method used with HTML. You can embed the entire stylesheet in an HTML document by using the STYLE element. More details...
+
+ <style>    
+body {    
+    background-color: linen;    
+}    
+h1 {    
+    color: red;    
+    margin-left: 80px;    
+}     
+</style>    
+       
+Q # : What are the advantages of Embedded Style Sheets?
+You can create classes for use on multiple tag types in the document.
+You can use selector and grouping methods to apply styles in complex situations.
+No extra download is required to import the information.
+
+Q # : Explain universal selector.
+The universal selector matches the name of any of the element type instead of selecting elements of a specific type.
+
+<style>    
+* {    
+   color: green;    
+   font-size: 20px;    
+}     
+</style> 
+
+Q # : Explain the difference between visibility: hidden and display: none?
+
+Q # : What is graceful degradation?
+
+In case the component fails, it will continue to work properly in the presence of a graceful degradation. The latest browser application is used when a webpage is designed. As it is not available to everyone, there is a basic functionality, which enables its use to a wider audience. In case the image is unavailable for viewing, text is shown with the alt tag.
+
+Q # : What is progressive enhancement?
+
+It’s an alternative to graceful degradation, which concentrates on the matter of the web. The functionality is same, but it provides an extra edge to users having the latest bandwidth. It has been into prominent use recently with mobile internet connections expanding their base.
+
+Q # : Why is @import only at the top?
+
+@import is preferred only at the top, to avoid any overriding rules. Generally, ranking order is followed in most programming languages such as Java, Modula, etc. In C, the # is a prominent example of a @import being at the top.
+
+Q # : What is Alternate Style Sheet?
+
+Alternate Style Sheets allows the user to select the style in which the page is displayed using the view>page style menu. Through Alternate Style Sheet, user can see a multiple version of the page on their needs and preferences.
+
+Q # : What is at-rule?
+
+Rule, which is applicable in the entire sheet and not partly, is known as at-rule. It is preceded by @ followed by A-Z, a-z or 0-9.
+
+Q #: Explain the three main ways to target elements.
+Now, in order to style certain elements on the page, you need to know how to specify those elements. There are three main ways to target something:
+
+By tag, e.g. you can target the body or p or span
+By the class you’ve specified in your HTML. For example, if you have three list items with the class nav-item you can target them with .nav-item
+By the ID you’ve specified in your HTML. For example, if you have a link with the ID home-button you can target it with #home-button
+/* tag */
+body { ... }
+/* class */
+.nav-item { ... }
+/* id */
+#home-button { ... }
+
+Q #: What are pseudo elements and what are they used for?
+Pseudo elements are used to style particular parts of an element, rather than the whole thing. For example, you can use it to style the first line or first letter of a paragraph, text you’ve selected, or you can use it to insert text or shapes before or after an element.
+
+They always start with a double colon - although a single colon is still allowed for backwards compatibility - and they look like this:
+
+p::first-line { ... }
+span::first-letter { ... }
+::selection { ... }
+.header::after { ... }
+.tooltip::before { ... }
+
+Q #:  What are pseudo classes and what are they used for?
+Pseudo classes are similar to pseudo elements, but instead of styling a part of an element, they apply styles when an element is in a certain state. For example, you could style a button differently based on whether the user has their mouse pointer over it, or when they click the button.
+
+Another common use case is to style only certain occurrences of elements in a row. For example, styling the first tab in a series of tabs, or every second tab.
+
+They all start with a single colon and look like this:
+
+.link:hover { ... }
+.link:active { ... }
+.tab:first-child { ... }
+.tab:last-child { ... }
+.avatar:nth-child(2n) { ... }
+
+Q #: What are functions/mixins?
+Mixins are a very handy way of adding a number of styles, based on a particular input parameter. For example, you might always want to add fallback styles when adding border-radius, but you don’t necessarily know what value you might want.
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+.box {
+    @include border-radius(10px);
+}
+Define the key components of Bootstrap.
+
+Answer: Its components include:
+
+Scaffolding – It has the grid system, background, styles.
+JS Plugins – Contains JS and jQuery plugins.
+Customize – Can customize frameworks.
+CSS – Contains CSS files.
+
+Q #: How many types of layouts are there in Bootstrap?
+
+Answer: There are two types of layouts in Bootstrap.
+
+They are:
+
+Fluid Layout
+Fixed Layout
+
+Q #: What are responsive utility classes in Bootstrap?
+
+Answer: Responsive utility classes in bootstrap are a set of classes which are used to conceal or exhibit the HTML elements based on screen resolution that discerns by media query in bootstrap.
+
+Example: “hidden-md-down”, It hides
+
+Q #: What is a jumbotron in Bootstrap?
+
+Answer: It is used to increase the size of headings and to add a lot of margins for landing page content. To create a jumbotron we have to create a container <div> with the class of .jumbotron.
+
+Q #: How can we make image responsive in Bootstrap?
+
+Answer: After the updates in Bootstrap, currently the feature to make an image responsive has been added, we can do this by adding a class .img-responsive to the <img> tag. This class makes the width max-width =100%; and height=auto; to the image so that it matches nicely to the parent element.
+
+Q #: What are panels in Bootstrap?
+
+Answer: Panels are components that are used when you want to put your DOM component in a box. So, to retrieve a basic panel we just need to add class.panel to the <div> element. We can also add class.panel-default to this element.
+
+Q #: How will you create a Bootstrap panel with heading?
+
+Answer: There are two ways by which we can add panel heading.
+
+First is, we can directly use .panel-heading class to add heading container in a panel and the second way is by using any heading tag like <h1> to <h6> with a .panel-title class to give more styles on the heading.
+
+Q #: What dependencies does Bootstrap require to work properly?
+
+Answer: jQuery is the only dependency that bootstrap requires for working properly and this is only for JavaScript plugins in bootstrap.
+
+Q #: What is the difference between Bootstrap and Foundation?
+
+Answer: Bootstrap uses very fewer preprocessors as it supports less and it allows the designing and development for both mobile and desktop. On the other hand, Foundation supports sass processors and it is used only for mobile UI designing.
+
+Q #: What are Glyphicons in Bootstrap?
+
+Answer: By this, we can use the icon simply anywhere in your code.
+
+<span class=”glyphicon glyphicon-search”></span>
+
+Q #:  Explain what are class loaders in Bootstrap?
+
+Class loader is a part of JRE (Java Runtime Environment) which loads Java classes into Java virtual environment. Class loaders also does the process of converting a named class into its equivalent binary form.
+
+Q #: What are offset columns in Bootstrap?
+
+For more specialized layouts offsets are a useful feature. For more spacing they can be used by pushing column over.
+
+For example, .col-xs=* classes do not support offset but they are easily replicated using an empty cell
+
+Q #: What is column ordering in Bootstrap?
+
+Column ordering is one of the feature available in bootstrap and you can easily write columns in an order and show them in another one. With .col-md-push-* and .col-md-pull-*
+
+the order of the column can be easily changed.
+
+Q #: In Bootstrap what are the two ways you can display the code?
+
+In bootstrap you can display code in two ways
+
+<code> tag : If you are going to display code inline, you should use <code> tag
+<pre> tag: If you want to display the code as a standalone block element or it has multiple lines then you should use <pre> tag
+
+) Explain what is Bootstrap well?
+
+Bootstrap well is a container <div> that makes the content to appear sunken or an inset effect on the page. In order to create a well, wrap the content that you would like to appear in the well with a <div> containing the class of .well.
