@@ -1,0 +1,33 @@
+***************************************************************************
+                       HTML
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">  
+        </mat-paginator> 
+
+   #paginator - trigger from component to define pagination within datatable
+[pageSize] - define how many rows will be displayed per page by default 
+[pageSizeOptions] - define how many rows you want to see at a time, you can change as per your requirement
+
+***************************************************************************
+                      Component
+constructor(public dataService: DataServiceService) { }  
+  @ViewChild(MatPaginator) paginator: MatPaginator;  
+  
+  ngOnInit() {  
+    this.RenderDataTable();  
+  }  
+  
+  RenderDataTable() {  
+    this.dataService.GetAllPhotos()  
+      .subscribe(  
+      res => {  
+        this.MyDataSource = new MatTableDataSource();  
+        this.MyDataSource.data = res;  
+        this.MyDataSource.paginator = this.paginator;  
+        console.log(this.MyDataSource.data);  
+      },  
+      error => {  
+        console.log('There was an error while retrieving Photos !!!' + error);  
+      });  
+  }  
+}  
+**********************************************************************************
