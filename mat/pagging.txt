@@ -31,3 +31,30 @@ constructor(public dataService: DataServiceService) { }
   }  
 }  
 **********************************************************************************
+
+
+public getTicketDetails(ticketId: string): Observable<HttpResponse<TicketDetailsModel>> {
+		return this.http.get<TicketDetailsModel>(`${AppSettings.ticketDetails}` + '/' + ticketId, {
+			observe: 'response'
+		});
+	}
+
+  this.ticketList = result.body.content;
+	this.totalTickets = result.body.totalElements;
+
+
+  submit({ value, valid }: { value: AddPaymentModel; valid: boolean }) {
+
+    this.transactionsService.setPayment(value).subscribe(
+        result => {
+            this.toasterService.success('Payment added successfully.');
+        },
+        error => {
+           this.processError(error);
+        }
+    );
+}
+
+public setPayment(addPayment: AddPaymentModel): Observable<any> {
+    return this.http.post(`${AppSettings.payment}`, addPayment, { observe: 'response' });
+}
