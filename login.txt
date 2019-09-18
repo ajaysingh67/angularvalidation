@@ -1,0 +1,55 @@
+response.addHeader("Access-Control-Expose-Headers", "Authorization");
+response.addHeader("Access-Control-Allow-Headers", "Authorization, X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept, X-Custom-header");
+response.addHeader(HEADER_STRING, TOKEN_PREFIX + token); // HEADER_STRING == Authorization
+And at my Angular Side
+
+In the Component.
+
+this.authenticationService.login(this.f.email.value, this.f.password.value)
+  .pipe(first())
+  .subscribe(
+    (data: HttpResponse<any>) => {
+      console.log(data.headers.get('authorization'));
+    },
+    error => {
+      this.loading = false;
+    });
+At my Service Side.
+
+return this.http.post<any>(Constants.BASE_URL + 'login', {username: username, password: password},
+  {observe: 'response' as 'body'})
+  .pipe(map(user => {
+       return user;
+  }));
+
+
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+   console.log("request/response intercepted");
+   return next.handle(req)
+     .pipe(
+       tap(
+         (result: HttpEvent<any>) => console.log("response intercepted", result),
+         (error: HttpErrorResponse) => console.error("error response intercepted", error)
+       )
+     );
+ }
+ 
+ 
+ login(credentials): Observable<any> {
+    const data = {
+      username: credentials.username,
+      password: credentials.password,
+      rememberMe: credentials.rememberMe
+    };
+    return this.http.post(SERVER_API_URL + 'api/authenticate', data, { observe: 'response' }).pipe(map(authenticateSuccess.bind(this)));
+
+    function authenticateSuccess(resp) {
+      const bearerToken = resp.headers.get('Authorization');
+      if (bearerToken && bearerToken.slice(0, 7) === 'Bearer ') {
+        const jwt = bearerToken.slice(7, bearerToken.length);
+        this.storeAuthenticationToken(jwt, credentials.rememberMe);
+        return jwt;
+      }
+    }
+  }
