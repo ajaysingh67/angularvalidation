@@ -30,3 +30,6 @@ FormModelName: FormGroup;
       currencyType: new FormControl('', [Validators.required]),
       code: new FormControl('')
     });
+
+    this.btcTransactionDetailsFormModel.get('txHash').setValidators([Validators.required]);
+			    this.btcTransactionDetailsFormModel.get('txHash').updateValueAndValidity();
