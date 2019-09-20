@@ -33,3 +33,4 @@ FormModelName: FormGroup;
 
     this.btcTransactionDetailsFormModel.get('txHash').setValidators([Validators.required]);
 			    this.btcTransactionDetailsFormModel.get('txHash').updateValueAndValidity();
+          

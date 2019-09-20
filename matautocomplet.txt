@@ -1,0 +1,64 @@
+import { Component, Injectable } from '@angular/core';
+import { fadeAnimation } from './animations';
+import { HttpClient } from '@angular/common/http';
+import { tap, startWith, debounceTime, switchMap, map } from 'rxjs/operators';
+import { Observable, of, Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class Service {
+  constructor(private http: HttpClient) { }
+
+  opts = [];
+
+  getData() {
+    return  this.http.get<any>('https://jsonplaceholder.typicode.com/users').pipe(tap(data => this.opts = data))
+  }
+}
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  myControl = new FormControl();
+  options = [];
+  filteredOptions: Observable<any[]>;
+
+  constructor(private service: Service) { }
+
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      debounceTime(400),
+      switchMap(value => this.doFilter(value))
+    )
+  }
+
+  doFilter(value) {
+    console.log("fffffff");
+    
+    return this.service.getData()
+      .pipe(
+        map(response => response.filter(option => {
+          console.log("optionoptionoption",option);
+          
+          return option.name.toLowerCase().indexOf(value.toLowerCase()) === 0
+        }))
+      )
+  }
+}
+
+
+// <form class="example-form">
+//                 <mat-form-field class="example-full-width">
+//                   <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+//                   <mat-autocomplete #auto="matAutocomplete">
+//                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+//                       {{option.name}}
+//                     </mat-option>
+//                   </mat-autocomplete>
+//                 </mat-form-field>
+//               </form>
