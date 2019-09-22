@@ -34,3 +34,16 @@ FormModelName: FormGroup;
     this.btcTransactionDetailsFormModel.get('txHash').setValidators([Validators.required]);
 			    this.btcTransactionDetailsFormModel.get('txHash').updateValueAndValidity();
           
+
+      static ConfirmpasswordValidator(frm: FormGroup) {
+        if (!frm.pristine) {
+            if (frm.value.length > 0) {
+                const parent = frm.parent;
+                if (parent.value.newPassword === frm.value) {
+                    return null;
+                } else {
+                    return { passwordnotmatch: true };
+                }
+            }
+        }
+    }      

@@ -162,7 +162,9 @@ body { ... }
 #home-button { ... }
 
 Q #: What are pseudo elements and what are they used for?
-Pseudo elements are used to style particular parts of an element, rather than the whole thing. For example, you can use it to style the first line or first letter of a paragraph, text you’ve selected, or you can use it to insert text or shapes before or after an element.
+Pseudo elements are used to style particular parts of an element, rather than the whole thing. For example, 
+you can use it to style the first line or first letter of a paragraph, text you’ve selected, or you can use it to insert text
+ or shapes before or after an element.
 
 They always start with a double colon - although a single colon is still allowed for backwards compatibility - and they look like this:
 
