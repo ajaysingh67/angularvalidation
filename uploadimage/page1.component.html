@@ -1,0 +1,20 @@
+<p>
+  page1 works!
+</p>
+<form [formGroup]="labelupdateForm" (ngSubmit)="submit(labelupdateForm)">
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Favorite food"  formControlName="useremail">
+</mat-form-field>
+<!-- <button mat-raised-button color="primary" (click)="confirmDialog()">Confirm</button> -->
+<input type="file"  (change)="documentUpload($event,fileProperties?.Chat_IMAGE?.chat, validatorMessages?.Chat_IMAGE?.attachments)">
+
+  <mat-form-field class="example-full-width">
+      <input type="text" placeholder="Pick one" aria-label="Number" formControlName="label" matInput [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-raised-button color="primary" >Confirm</button> 
+  </form>

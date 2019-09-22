@@ -47,3 +47,11 @@ FormModelName: FormGroup;
             }
         }
     }      
+
+    export class AppSettings {
+
+     public static get login():string{ return `${API_ENDPOINT}login`}
+     public static get dashboard():string{ return `${API_ENDPOINT}dashboard`}
+     public static get dashboardTransaction():string{ return `${API_ENDPOINT}dashboard/txn`}
+    
+    }
