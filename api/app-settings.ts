@@ -1,5 +1,4 @@
 import * as config from './app.config';
-// var API_URL = "https://dev-bank.cashaa.com/";
 const API_URL = config.Configs.url; // "http://localhost:9060/";
 const API_ENDPOINT = API_URL + config.Configs.path;
 export const MaxSize = 10;

@@ -1,7 +1,7 @@
 
  <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/dashboard">
-            <span class="nav_icons"><i class="fas fa-columns"></i></span><span jhitranslate="cashaabankApp.dashboard.sidebar.dashboard">Dashboard</span>
+            <span class="nav_icons"><i class="fas fa-columns"></i></span><span jhitranslate="">Dashboard</span>
         </a>
  </li>
  
