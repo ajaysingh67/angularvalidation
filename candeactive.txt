@@ -1,16 +1,35 @@
 ng g g canDeactive
-
+*******************************************************
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 
-export interface DeactivationGuarded {
-  canDeactivate(nextState: string): Observable<boolean>; | Promise<boolean> | boolean;
+export interface CanComponentDeactivate {
+  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 }
 
-@Injectable()
-export class CanDeactivateGuard implements CanDeactivate {
-  canDeactivate(component: DeactivationGuarded):  Observable<boolean>; | Promise<boolean> | boolean {
+@Injectable({
+    providedIn: 'root'
+  })
+export class DeactivateGuardService implements  CanDeactivate<CanComponentDeactivate>{
+
+  canDeactivate(component: CanComponentDeactivate) {
     return component.canDeactivate ? component.canDeactivate() : true;
   }
 }
+
+
+******************************************************
+
+ canDeactivate() {
+       console.log(this.labelupdateForm.dirty);
+       if (this.loading) {
+           console.log('no, you wont navigate anywhere');
+           return false;
+       }
+       console.log('you are going away, goodby');
+       return true;
+   }
+*****************************************************
+
+  {path:'',component:Page1Component, canDeactivate: [DeactivateGuardService],},
