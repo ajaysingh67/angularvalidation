@@ -179,6 +179,15 @@ Changes are only available per window (or tab in browsers like Chrome and Firefo
 The data is available only inside the window/tab in which it was set.
 The data is not persistent i.e. it will be lost once the window/tab is closed. Like localStorage, it works on same-origin policy. So, data stored will only be available on the same origin.
 
+ Q :  What is the difference between an alert box and a confirmation box?
+ An alert box displays only one button which is the OK button.
+ But a Confirmation box displays two buttons namely OK and cancel.
+
+ Q : What are escape characters?
+Escape characters (Backslash) is used when working with special characters like single quotes, double quotes, apostrophes and ampersands. Place backslash before the characters to make it display.
+Example:
+document.write "I m a "good" boy"
+document.write "I m a \"good\" boy"
  ********************************************************************
 Q* :  What is the difference between test () and exec () methods?
 Answer: Both test () and exec () are RegExp expression methods.
@@ -404,3 +413,7 @@ wm.set(object3, "VueJS");
 doc.writeIn(wm.has(object3));
 }
 display();
+
+
+https://codepen.io/kathykato/pen/gOOjgmP
+https://stackblitz.com/edit/angular-fftwpg
